@@ -1,0 +1,90 @@
+.row {
+  align-items: center;
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+
+.row:hover {
+  border-color: var(--brand-gold);
+}
+
+.active {
+  border-color: var(--brand-gold);
+  box-shadow: inset 3px 0 0 var(--brand-gold);
+}
+
+.checked {
+  background: rgba(216, 170, 30, 0.1);
+}
+
+.archived {
+  opacity: 0.62;
+}
+
+.check {
+  flex: 0 0 auto;
+  margin: 0 4px;
+}
+
+.icon {
+  align-items: center;
+  background: rgba(216, 170, 30, 0.16);
+  border-radius: var(--radius-sm);
+  color: var(--brand-gold-strong);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+.body {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+  min-width: 0;
+}
+
+.titleText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.metaText {
+  color: var(--color-muted);
+}
+
+.sep {
+  color: var(--color-muted);
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  margin-left: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.row:hover .actions,
+.active .actions {
+  opacity: 1;
+  pointer-events: auto;
+}

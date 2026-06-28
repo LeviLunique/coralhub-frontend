@@ -1,0 +1,36 @@
+.panel {
+  display: grid;
+  gap: 12px;
+}
+
+.topActions {
+  display: flex;
+  gap: 4px;
+}
+
+.panel :global(.input) {
+  background: transparent;
+  border-color: transparent;
+  padding-left: 0;
+}
+
+.panel :global(.input):focus {
+  box-shadow: none;
+}
+
+.panel :global(.readonly-field) {
+  background: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.panel :global(.icon-button) {
+  background: transparent;
+  border-color: transparent;
+}
+
+.panel :global(.icon-button):hover {
+  background: var(--color-surface-strong);
+  border-color: transparent;
+}

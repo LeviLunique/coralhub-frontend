@@ -1,0 +1,80 @@
+.field {
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 3px;
+  margin: 0 -8px;
+  padding: 6px 8px;
+  transition: background-color 120ms ease;
+}
+
+.editableField:hover {
+  background: var(--color-hover);
+}
+
+.label {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.value {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  cursor: default;
+  display: flex;
+  font: inherit;
+  gap: 8px;
+  justify-content: space-between;
+  min-height: 30px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.editable {
+  cursor: text;
+}
+
+.text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.placeholder {
+  color: var(--color-muted);
+}
+
+.pencil {
+  align-items: center;
+  color: var(--color-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.editableField:hover .pencil,
+.editable:focus-visible .pencil {
+  opacity: 1;
+}
+
+.input {
+  background: var(--color-surface-strong);
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font: inherit;
+  min-height: 36px;
+  outline: 0;
+  padding: 6px 10px;
+  resize: vertical;
+  width: 100%;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2px rgba(216, 170, 30, 0.4);
+}

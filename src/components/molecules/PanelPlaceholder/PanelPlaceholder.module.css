@@ -1,0 +1,24 @@
+.placeholder {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 8px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.description,
+.hint {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 0;
+  max-width: 260px;
+}
+
+.hint {
+  margin-top: 8px;
+}

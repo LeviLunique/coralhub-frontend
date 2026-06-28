@@ -1,0 +1,38 @@
+.panel {
+  display: grid;
+  gap: 12px;
+}
+
+.heading {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  align-items: center;
+  color: var(--color-red);
+  display: inline-flex;
+}
+
+.title {
+  margin: 0;
+}
+
+.message {
+  color: var(--color-text);
+  margin: 0;
+}
+
+.warning {
+  color: var(--color-red);
+  font-size: 13px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}

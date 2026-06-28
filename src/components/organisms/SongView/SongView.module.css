@@ -1,0 +1,170 @@
+.view {
+  display: grid;
+  gap: 18px;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.titleBlock {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.topActions {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.panelHead {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panelTitle {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+}
+
+.countBadge {
+  background: var(--color-surface-strong);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-size: 13px;
+  padding: 1px 9px;
+}
+
+.panelHint {
+  color: var(--color-muted);
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.filters {
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.filterGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  appearance: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 12px;
+}
+
+.chipActive {
+  background: rgba(216, 170, 30, 0.18);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold-strong);
+}
+
+.group {
+  display: grid;
+  gap: 8px;
+}
+
+.groupTitle {
+  color: var(--color-muted);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+}
+
+.row {
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 10px 12px;
+}
+
+.rowArchived {
+  opacity: 0.62;
+}
+
+.rowFile {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rowFile strong,
+.rowFile small {
+  display: block;
+}
+
+.rowFile small {
+  color: var(--color-muted);
+}
+
+.rowActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.muted {
+  color: var(--color-muted);
+}

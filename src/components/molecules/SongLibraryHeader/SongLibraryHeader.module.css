@@ -1,0 +1,31 @@
+.header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+.title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.count {
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.selected {
+  color: var(--brand-gold-strong);
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}

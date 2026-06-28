@@ -1,0 +1,48 @@
+.library {
+  display: grid;
+  gap: 16px;
+}
+
+.sections {
+  display: grid;
+  gap: 18px;
+}
+
+.section {
+  display: grid;
+  gap: 8px;
+}
+
+.sectionTitle {
+  align-items: center;
+  color: var(--color-muted);
+  display: flex;
+  font-size: 13px;
+  gap: 6px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+}
+
+.empty {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.emptyText {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.muted {
+  color: var(--color-muted);
+}

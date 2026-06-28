@@ -1,0 +1,47 @@
+.panel {
+  display: grid;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 4px 0 0;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+}
+
+.item {
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.item:hover {
+  border-color: var(--brand-gold);
+}
+
+.item small {
+  color: var(--color-muted);
+}
+
+.empty {
+  color: var(--color-muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
