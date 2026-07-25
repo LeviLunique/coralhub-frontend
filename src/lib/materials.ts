@@ -12,6 +12,22 @@ export const materialTypeLabels: Record<MaterialType, string> = {
 
 export const materialTypeOrder: MaterialType[] = ['audio_guide', 'sheet_music', 'playback', 'lyrics', 'other']
 
+// The three panel sections a material can belong to.
+export type MaterialSection = 'scores' | 'media' | 'notes'
+
+// Synthetic id for the song-level notes "document" shown in the viewer.
+export const NOTES_DOC_ID = 'song-notes'
+
+export function sectionOf(material: Material): MaterialSection {
+  if (material.material_type === 'sheet_music') {
+    return 'scores'
+  }
+  if (material.material_type === 'audio_guide' || material.material_type === 'playback') {
+    return 'media'
+  }
+  return 'notes'
+}
+
 export function isAudioMaterial(material: Material): boolean {
   if (material.content_type) {
     return material.content_type.startsWith('audio')

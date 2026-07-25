@@ -1,0 +1,13 @@
+/* Content of the full-height detail rail: the rail itself provides the surface,
+   border and vertical fill; here we only lay the sections out. */
+.panel {
+  display: grid;
+  gap: 22px;
+}
+
+.empty {
+  color: var(--color-muted);
+  font-size: 13px;
+  margin: 0;
+  padding: 2px 2px 4px;
+}

@@ -1,0 +1,31 @@
+.add {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 14px;
+  gap: 10px;
+  padding: 4px 2px;
+  text-align: left;
+  width: 100%;
+}
+
+.add:hover {
+  color: var(--color-text);
+}
+
+.icon {
+  align-items: center;
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  color: var(--color-muted);
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
