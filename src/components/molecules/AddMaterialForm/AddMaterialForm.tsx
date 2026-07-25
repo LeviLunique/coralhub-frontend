@@ -19,11 +19,12 @@ type AddMaterialFormProps = {
   instruments: Instrument[]
   onCreateInstrument: (name: string) => Instrument
   onAdd: (draft: NewMaterialDraft) => void
+  defaultType?: MaterialType
 }
 
-export function AddMaterialForm({ instruments, onCreateInstrument, onAdd }: AddMaterialFormProps) {
+export function AddMaterialForm({ instruments, onCreateInstrument, onAdd, defaultType = 'sheet_music' }: AddMaterialFormProps) {
   const [name, setName] = useState('')
-  const [type, setType] = useState<MaterialType>('sheet_music')
+  const [type, setType] = useState<MaterialType>(defaultType)
   const [target, setTarget] = useState<'voice' | 'instrument'>('voice')
   const [voiceLabels, setVoiceLabels] = useState<string[]>([])
   const [customVoices, setCustomVoices] = useState<string[]>([])

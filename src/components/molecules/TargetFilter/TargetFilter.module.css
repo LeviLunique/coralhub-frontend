@@ -1,0 +1,70 @@
+.filters {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.segmented {
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+}
+
+.segItem {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: var(--color-muted);
+  cursor: pointer;
+  flex: 1;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 8px;
+}
+
+.segItem:hover {
+  color: var(--color-text);
+}
+
+.segItemActive,
+.segItemActive:hover {
+  background: var(--brand-burgundy);
+  color: #fff;
+}
+
+.chips {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  appearance: none;
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 10px;
+}
+
+.chipActive {
+  background: rgba(216, 170, 30, 0.18);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold-strong);
+}
+
+.muted {
+  color: var(--color-muted);
+}

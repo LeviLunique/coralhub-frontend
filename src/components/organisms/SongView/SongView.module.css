@@ -1,6 +1,9 @@
 .view {
   display: grid;
-  gap: 18px;
+  flex: 1;
+  gap: 16px;
+  grid-template-rows: auto 1fr;
+  min-height: 0;
 }
 
 .topbar {
@@ -13,6 +16,7 @@
   display: grid;
   flex: 1;
   min-width: 0;
+  text-align: center;
 }
 
 .title {
@@ -33,138 +37,286 @@
   gap: 4px;
 }
 
-.panel {
-  background: var(--color-surface);
+.topDivider {
+  background: var(--color-border);
+  height: 22px;
+  margin: 0 4px;
+  width: 1px;
+}
+
+/* Document canvas (viewer). The side panel lives in the full-height detail rail. */
+.canvas {
+  background: var(--color-canvas);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  display: grid;
-  gap: 16px;
-  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
-.panelHead {
+.pageScroll {
   align-items: flex-start;
   display: flex;
-  justify-content: space-between;
+  flex: 1;
+  justify-content: center;
+  overflow: auto;
+  padding: 32px;
 }
 
-.panelTitle {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-  margin: 0;
-}
-
-.countBadge {
-  background: var(--color-surface-strong);
-  border-radius: 999px;
-  color: var(--color-muted);
-  font-size: 13px;
-  padding: 1px 9px;
-}
-
-.panelHint {
-  color: var(--color-muted);
-  font-size: 13px;
-  margin: 4px 0 0;
-}
-
-.filters {
+.page {
   background: var(--color-surface-strong);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: 2px;
+  box-shadow: var(--shadow-md);
+  min-height: 700px;
+  padding: 48px 52px;
+  width: 100%;
+  max-width: 580px;
+}
+
+/* Text document (song notes) */
+.doc {
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  gap: 14px;
 }
 
-.filterGroup {
-  display: grid;
-  gap: 8px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chip {
-  appearance: none;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  color: var(--color-text);
-  cursor: pointer;
-  font: inherit;
+.docBrand {
+  color: var(--brand-burgundy);
   font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  padding: 8px 12px;
-}
-
-.chipActive {
-  background: rgba(216, 170, 30, 0.18);
-  border-color: var(--brand-gold);
-  color: var(--brand-gold-strong);
-}
-
-.group {
-  display: grid;
-  gap: 8px;
-}
-
-.groupTitle {
-  color: var(--color-muted);
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.list {
+.docHeading {
+  border-bottom: 1px solid var(--color-border);
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.docBody {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Sheet music page (PDF placeholder) */
+.sheetPage {
+  display: grid;
+  gap: 18px;
+}
+
+.sheetHead {
+  display: grid;
+  gap: 2px;
+  text-align: center;
+}
+
+.sheetTitle {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.sheetMeta {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.sheetSvg {
+  color: #1c1c1c;
+  display: block;
+  width: 100%;
+}
+
+.sheetFooter {
+  color: var(--color-muted);
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Empty state */
+.empty {
+  align-items: center;
+  color: var(--color-muted);
   display: grid;
   gap: 6px;
+  justify-items: center;
+  margin: auto;
+  text-align: center;
 }
 
-.row {
+.empty strong {
+  color: var(--color-text);
+  font-size: 16px;
+}
+
+.pageForm {
+  display: grid;
+  gap: 14px;
+}
+
+.formTitle {
+  margin: 0;
+}
+
+/* --- Audio viewer --- */
+.audioViewer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.audioStage {
   align-items: center;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+}
+
+.audioDisc {
+  align-items: center;
+  background: radial-gradient(circle at 50% 42%, var(--brand-burgundy), var(--brand-burgundy-strong));
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  color: var(--brand-cream);
+  display: inline-flex;
+  height: 180px;
+  justify-content: center;
+  width: 180px;
+}
+
+.audioDiscSpin {
+  animation: audioSpin 8s linear infinite;
+}
+
+@keyframes audioSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.audioName {
+  font-size: 22px;
+  margin: 0;
+}
+
+.audioMeta {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* --- Player (footer) --- */
+.player {
+  align-items: center;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
-  padding: 10px 12px;
+  gap: 16px;
+  padding: 14px 22px;
 }
 
-.rowArchived {
-  opacity: 0.62;
-}
-
-.rowFile {
+.playerControls {
   align-items: center;
   display: flex;
   gap: 10px;
-  min-width: 0;
 }
 
-.rowFile strong,
-.rowFile small {
-  display: block;
-}
-
-.rowFile small {
+.playerSkip {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
   color: var(--color-muted);
+  cursor: pointer;
+  display: inline-flex;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
 }
 
-.rowActions {
+.playerSkip:hover {
+  background: var(--color-hover);
+  color: var(--color-text);
+}
+
+.playerPlay {
+  align-items: center;
+  appearance: none;
+  background: var(--brand-burgundy);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.playerPlay:hover {
+  background: var(--brand-burgundy-strong);
+}
+
+.playerTrack {
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex: 1;
+  gap: 12px;
+  min-width: 220px;
 }
 
-.muted {
+.playerTime {
   color: var(--color-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  min-width: 38px;
+  text-align: center;
+}
+
+.playerBar {
+  background: var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  flex: 1;
+  height: 6px;
+  position: relative;
+}
+
+.playerFill {
+  background: var(--brand-burgundy);
+  border-radius: 999px;
+  height: 100%;
+}
+
+.playerThumb {
+  background: var(--brand-burgundy);
+  border: 2px solid var(--color-surface);
+  border-radius: 50%;
+  height: 14px;
+  margin-left: -7px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+}
+
+@media (max-width: 860px) {
+  .pageScroll {
+    padding: 16px;
+  }
+
+  .page {
+    min-height: 460px;
+    padding: 28px 24px;
+  }
 }

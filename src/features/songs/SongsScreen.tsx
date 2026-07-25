@@ -49,7 +49,7 @@ function sortSongs(songs: Song[], sort: string): Song[] {
 }
 
 export function SongsScreen(props: SongsScreenProps) {
-  const { choirID, instruments, isManager, materials, onCreateInstrument, onDeleteMaterial, onDeleteSong, onSaveMaterial, onSaveRepertoire, onSaveSong, repertoires, selectedSongID, setSelectedSongID, songs, tenantID, user } = props
+  const { choirID, instruments, isManager, materials, onCreateInstrument, onDeleteMaterial, onDeleteSong, onSaveMaterial, onSaveRepertoire, onSaveSong, repertoires, selectedSongID, setSelectedSongID, songs, tenantID } = props
 
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState('name-asc')
@@ -63,7 +63,8 @@ export function SongsScreen(props: SongsScreenProps) {
     setRailEl(document.getElementById('song-detail-rail'))
   }, [])
 
-  const railVisible = !viewSongID && panel.mode !== 'placeholder'
+  // Rail is shown for the song viewer (SongView fills it) and for the library's own panels.
+  const railVisible = Boolean(viewSongID) || panel.mode !== 'placeholder'
 
   useEffect(() => {
     const shell = document.querySelector('.app-shell')
@@ -187,7 +188,6 @@ export function SongsScreen(props: SongsScreenProps) {
         onToggleArchive={() => onSaveSong({ ...viewSong, archived: !viewSong.archived, updated_at: stamp() })}
         onTogglePin={() => onSaveSong({ ...viewSong, favorite: !viewSong.favorite, updated_at: stamp() })}
         song={viewSong}
-        user={user}
       />
     )
   }
