@@ -11,3 +11,281 @@
   margin: 0;
   padding: 2px 2px 4px;
 }
+
+.videoItem {
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.videoItem:hover,
+.videoItem:focus-within {
+  background: var(--color-hover);
+}
+
+.videoExpanded {
+  background: var(--color-hover);
+  border-color: var(--color-border);
+}
+
+.videoRow {
+  align-items: center;
+  color: var(--color-text);
+  cursor: pointer;
+  display: grid;
+  font-size: 14px;
+  font-weight: 650;
+  gap: 9px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 42px;
+  outline: none;
+  padding: 7px 8px;
+}
+
+.videoRow:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--brand-gold);
+}
+
+.videoExpanded .videoRow {
+  background: var(--brand-burgundy);
+  color: #fff;
+}
+
+.videoIcon {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-xs);
+  color: var(--color-muted);
+  display: inline-flex;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.videoExpanded .videoIcon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.videoLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.videoActions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.videoItem:hover .videoActions,
+.videoItem:focus-within .videoActions,
+.videoExpanded .videoActions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.videoActions button {
+  align-items: center;
+  appearance: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text);
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+}
+
+.videoActions button:hover {
+  border-color: var(--brand-gold);
+}
+
+.videoActions .deleteAction {
+  color: var(--color-red);
+}
+
+.renameInput {
+  background: var(--color-field);
+  border: 1px solid var(--brand-burgundy);
+  border-radius: var(--radius-xs);
+  color: var(--color-text);
+  font: inherit;
+  min-width: 0;
+  outline: none;
+  padding: 5px 7px;
+  width: 100%;
+}
+
+.videoEmbed {
+  aspect-ratio: 16 / 10;
+  background: #100d0e;
+  margin: 8px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.videoEmbed iframe,
+.videoEmbed video {
+  background: #100d0e;
+  border: 0;
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.audioEmbed {
+  background: var(--color-surface-strong);
+  border-top: 1px solid var(--color-border);
+  padding: 12px 8px;
+}
+
+.audioEmbed audio {
+  display: block;
+  height: 42px;
+  width: 100%;
+}
+
+.audioMiniPlayer {
+  background: var(--color-surface-strong);
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: 10px;
+  padding: 11px;
+}
+
+.audioMiniMeta,
+.audioMiniControls {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+
+.audioMiniMeta {
+  color: var(--color-muted);
+  font-size: 11px;
+  justify-content: space-between;
+}
+
+.audioMiniMeta button,
+.audioMiniControls button {
+  align-items: center;
+  appearance: none;
+  background: var(--color-canvas);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--color-text);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 30px;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+}
+
+.audioMiniControls input,
+.reverbControl input {
+  accent-color: var(--brand-burgundy);
+  min-width: 0;
+  width: 100%;
+}
+
+.audioControlActive {
+  background: rgba(102, 24, 43, .15) !important;
+  border-color: var(--brand-burgundy) !important;
+  color: var(--brand-burgundy) !important;
+}
+
+.reverbControl {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: 7px;
+  padding-top: 10px;
+}
+
+.reverbControl span {
+  color: var(--color-muted);
+  display: flex;
+  font-size: 11px;
+  justify-content: space-between;
+}
+
+.previewUnavailable {
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  padding: 12px 10px;
+}
+
+.layerHeading {
+  align-items: center;
+  color: var(--color-muted);
+  display: flex;
+  font-size: 11px;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.layerHeading button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--color-muted);
+  font: inherit;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+.annotationLayers {
+  display: grid;
+  gap: 5px;
+}
+
+.annotationLayers > div {
+  align-items: center;
+  background: var(--color-field);
+  border-radius: var(--radius-sm);
+  display: grid;
+  font-size: 13px;
+  font-weight: 650;
+  gap: 8px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 40px;
+  padding: 6px 7px 6px 10px;
+}
+
+.annotationLayers span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.annotationLayers button {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.annotationLayers button:hover:not(:disabled) { background: var(--color-hover); }
+.layerMuted { opacity: .5; }
+
+@media (hover: none) {
+  .videoActions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,46 @@
+.overlay {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 4;
+}
+
+.interactive .item,
+.interactive .pathLayer path { pointer-events: auto; }
+
+.item {
+  line-height: 1;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  white-space: pre-wrap;
+}
+
+.symbol {
+  font-family: "Bravura Text", "Noto Music", "Times New Roman", serif;
+  font-weight: 600;
+}
+
+.text {
+  font-family: var(--font-sans);
+  line-height: 1.2;
+}
+
+.pathLayer {
+  height: 100%;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.selected {
+  filter: drop-shadow(0 0 2px var(--brand-gold));
+  outline: 1px dashed var(--brand-burgundy);
+  outline-offset: 3px;
+}
+
+.pathLayer.selected path { stroke-dasharray: 3 2; }
+.pathLayer.selected { outline: 0; }

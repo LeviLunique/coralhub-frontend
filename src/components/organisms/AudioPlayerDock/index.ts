@@ -1,0 +1,1 @@
+export { AudioPlayerDock } from './AudioPlayerDock'

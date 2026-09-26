@@ -1,0 +1,1 @@
+export { DeleteMaterialDrawer } from './DeleteMaterialDrawer'
