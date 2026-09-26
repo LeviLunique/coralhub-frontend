@@ -63,8 +63,8 @@ export function SongsScreen(props: SongsScreenProps) {
     setRailEl(document.getElementById('song-detail-rail'))
   }, [])
 
-  // Rail is shown for the song viewer (SongView fills it) and for the library's own panels.
-  const railVisible = Boolean(viewSongID) || panel.mode !== 'placeholder'
+  // The library's own detail rail; hidden in the focused song viewer (SongView renders its own panel).
+  const railVisible = !viewSongID && panel.mode !== 'placeholder'
 
   useEffect(() => {
     const shell = document.querySelector('.app-shell')
@@ -74,6 +74,16 @@ export function SongsScreen(props: SongsScreenProps) {
     shell.classList.toggle('is-rail-hidden', !railVisible)
     return () => shell.classList.remove('is-rail-hidden')
   }, [railVisible])
+
+  // Focused viewer mode: full-width top bar, no left sidebar — only the song panel.
+  useEffect(() => {
+    const shell = document.querySelector('.app-shell')
+    if (!shell) {
+      return
+    }
+    shell.classList.toggle('is-song-focus', Boolean(viewSongID))
+    return () => shell.classList.remove('is-song-focus')
+  }, [viewSongID])
 
   useEffect(() => {
     if (selectedSongID === 'new') {

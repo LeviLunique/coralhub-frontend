@@ -1,0 +1,89 @@
+.backdrop {
+  align-items: stretch;
+  animation: fadeIn 180ms ease-out;
+  background: rgba(23, 16, 18, 0.62);
+  display: flex;
+  inset: 0;
+  justify-content: flex-end;
+  position: fixed;
+  z-index: 110;
+}
+
+.drawer {
+  animation: slideIn 220ms ease-out;
+  background: var(--color-surface);
+  box-shadow: -20px 0 48px rgba(37, 22, 27, 0.18);
+  display: flex;
+  max-width: 100%;
+  min-height: 100%;
+  width: min(560px, 100%);
+}
+
+.content {
+  display: grid;
+  gap: 52px;
+  margin: auto 0;
+  padding: 64px 52px;
+  width: 100%;
+}
+
+.copy {
+  display: grid;
+  gap: 10px;
+}
+
+.copy h2 {
+  font-size: clamp(24px, 2vw, 30px);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.copy p {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.copy strong {
+  color: var(--color-text);
+}
+
+.actions {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.action {
+  justify-content: center;
+  min-height: 52px;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(32px); }
+  to { transform: translateX(0); }
+}
+
+@media (max-width: 640px) {
+  .drawer {
+    width: 100%;
+  }
+
+  .content {
+    padding: 36px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .drawer {
+    animation: none;
+  }
+}

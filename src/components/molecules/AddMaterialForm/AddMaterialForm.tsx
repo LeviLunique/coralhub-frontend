@@ -13,6 +13,11 @@ export type NewMaterialDraft = {
   target_type: 'voice' | 'instrument'
   voice_labels: string[]
   instrument_ids: string[]
+  file_name?: string
+  content_type?: string
+  size_bytes?: number
+  external_url?: string
+  preview_url?: string
 }
 
 type AddMaterialFormProps = {
@@ -20,10 +25,13 @@ type AddMaterialFormProps = {
   onCreateInstrument: (name: string) => Instrument
   onAdd: (draft: NewMaterialDraft) => void
   defaultType?: MaterialType
+  initialName?: string
+  submitDisabled?: boolean
+  submitLabel?: string
 }
 
-export function AddMaterialForm({ instruments, onCreateInstrument, onAdd, defaultType = 'sheet_music' }: AddMaterialFormProps) {
-  const [name, setName] = useState('')
+export function AddMaterialForm({ instruments, onCreateInstrument, onAdd, defaultType = 'sheet_music', initialName = '', submitDisabled = false, submitLabel = 'Adicionar material' }: AddMaterialFormProps) {
+  const [name, setName] = useState(initialName)
   const [type, setType] = useState<MaterialType>(defaultType)
   const [target, setTarget] = useState<'voice' | 'instrument'>('voice')
   const [voiceLabels, setVoiceLabels] = useState<string[]>([])
@@ -128,7 +136,7 @@ export function AddMaterialForm({ instruments, onCreateInstrument, onAdd, defaul
         </div>
       )}
 
-      <Button icon={<Plus className="button__icon" size={16} />} onClick={submit} variant="secondary">Adicionar material</Button>
+      <Button disabled={submitDisabled || !name.trim()} icon={<Plus className="button__icon" size={16} />} onClick={submit} variant="secondary">{submitLabel}</Button>
     </div>
   )
 }

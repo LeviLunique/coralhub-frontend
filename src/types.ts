@@ -79,6 +79,8 @@ export type Material = {
   file_name?: string
   content_type?: string
   size_bytes?: number
+  external_url?: string
+  preview_url?: string
   archived: boolean
   updated_at: string
 }

@@ -22,7 +22,7 @@ export function sectionOf(material: Material): MaterialSection {
   if (material.material_type === 'sheet_music') {
     return 'scores'
   }
-  if (material.material_type === 'audio_guide' || material.material_type === 'playback') {
+  if (material.external_url || material.content_type?.startsWith('video/') || material.material_type === 'audio_guide' || material.material_type === 'playback') {
     return 'media'
   }
   return 'notes'
@@ -33,6 +33,10 @@ export function isAudioMaterial(material: Material): boolean {
     return material.content_type.startsWith('audio')
   }
   return material.material_type === 'audio_guide' || material.material_type === 'playback'
+}
+
+export function isVideoMaterial(material: Material): boolean {
+  return Boolean(material.external_url) || material.content_type?.startsWith('video/') === true
 }
 
 export function materialMeta(material: Material): string {
